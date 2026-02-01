@@ -1,0 +1,12 @@
+{
+  "name": "__PLUGIN_NAME__",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "ps-maker-plugin build"
+  },
+  "devDependencies": {
+    "create-ps-maker-plugin": "^0.1.0"
+  }
+}
