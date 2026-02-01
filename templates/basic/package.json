@@ -4,6 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "tsc"
+    "build": "ps-maker-plugin build"
+  },
+  "devDependencies": {
+    "create-ps-maker-plugin": "^0.1.0"
   }
 }
