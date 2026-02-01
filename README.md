@@ -46,32 +46,3 @@ ps-maker-plugin build
 # Build to custom output directory
 ps-maker-plugin build --outdir out
 ```
-
-## Plugin Structure
-
-Generated plugins have the following structure:
-
-```
-my-plugin/
-├── src/
-│   └── index.ts    # Plugin entry point (default export)
-├── dist/           # Built output
-└── package.json
-```
-
-Your plugin should export a default object from `src/index.ts`:
-
-```ts
-export default {
-  name: "my-plugin",
-  version: "0.1.0",
-
-  init() {
-    // Called when plugin is loaded
-  },
-
-  destroy() {
-    // Called when plugin is unloaded
-  },
-};
-```
