@@ -25,18 +25,22 @@ export async function build(options: BuildOptions): Promise<void> {
     pluginName = pkg.name || "plugin";
   }
 
+  // Sanitize plugin name for safe filename usage (keep hyphens, alphanumeric, dots, underscores)
+  const safePluginName = pluginName.replace(/[^a-zA-Z0-9._-]/g, "_");
+  const outfilePath = path.join(outdir, `${safePluginName}.ps-maker.js`);
+
   try {
     await esbuild.build({
       entryPoints: [entryPoint],
       bundle: true,
-      outfile: path.join(outdir, `${pluginName}.ps-maker.js`),
+      outfile: outfilePath,
       format: "esm",
       platform: "browser",
       target: "es2020",
       minify: true,
       sourcemap: true,
     });
-    console.log(pc.green(`✔ Built ${pluginName}.ps-maker.js to ${outdir}`));
+    console.log(pc.green(`✔ Built ${safePluginName}.ps-maker.js to ${outdir}`));
   } catch (error) {
     console.log(pc.red("Build failed:"), (error as Error).message);
     process.exit(1);
