@@ -1,14 +1,23 @@
-// __PLUGIN_NAME__ - Pixel Stories Maker Plugin
+import { defineEvent, definePlugin } from "@ps-maker/plugin-api";
 
-export default {
+const fooEvent = defineEvent({
+  name: "timer",
+  description: "Starts a timer and ends event when timer completes.",
+  parameterDefs: {
+    message: {
+      description: "A greeting message.",
+      type: "string",
+      defaultValue: "Hello, world!",
+    },
+  },
+  execute: (params, ctx) => {
+    params.message; // ✅ string
+  },
+});
+
+export default definePlugin({
   name: "__PLUGIN_NAME__",
+  description: "A brief description my plugin.",
   version: "0.1.0",
-
-  init() {
-    console.log("Plugin initialized!");
-  },
-
-  destroy() {
-    console.log("Plugin destroyed!");
-  },
-};
+  events: [fooEvent],
+});

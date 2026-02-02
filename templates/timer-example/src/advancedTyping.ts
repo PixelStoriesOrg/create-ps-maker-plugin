@@ -1,10 +1,10 @@
 import {
-  definePlugin,
-  defineEvent,
-  PluginEventHandler,
   type ParamSchemas,
+  type PluginEventHandler,
   type PluginContext,
-} from "./types";
+  defineEvent,
+  definePlugin,
+} from "@ps-maker/plugin-api";
 
 // 1. Define parameterDefs separately (with `as const` for literal types)
 const timerParams = {

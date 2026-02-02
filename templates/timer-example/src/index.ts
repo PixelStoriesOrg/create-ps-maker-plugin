@@ -1,4 +1,4 @@
-import { definePlugin, defineEvent } from "./types";
+import { defineEvent, definePlugin } from "@ps-maker/plugin-api";
 
 const fooEvent = defineEvent({
   name: "timer",
