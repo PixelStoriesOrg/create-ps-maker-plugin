@@ -11,11 +11,15 @@ const __dirname = path.dirname(__filename);
 export async function create(targetDir?: string): Promise<void> {
   clack.intro(pc.cyan("Welcome to the PS Maker Plugin CLI!"));
 
-  const projectDir = await clack.text({
-    message: "Where would you like your project to be created?",
-    placeholder: "(hit Enter to use './')",
-    defaultValue: targetDir || "./",
-  });
+  if (targetDir) clack.log.info(`Creating project in: ${pc.cyan(targetDir)}`);
+
+  const projectDir = targetDir
+    ? targetDir
+    : await clack.text({
+        message: "Where would you like your project to be created?",
+        placeholder: "(hit Enter to use './')",
+        defaultValue: targetDir || "./",
+      });
 
   if (clack.isCancel(projectDir)) {
     clack.cancel("Operation cancelled.");
