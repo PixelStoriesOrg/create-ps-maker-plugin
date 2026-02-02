@@ -6,7 +6,8 @@ import {
   definePlugin,
 } from "@ps-maker/plugin-api";
 
-// 1. Define parameterDefs separately (with `as const` for literal types)
+// Example: defining the function outside of defineEvent
+// first define parameterDefs separately (with `as const` for literal types)
 const timerParams = {
   message: {
     description: "A greeting message.",
@@ -23,8 +24,7 @@ const timerParams = {
     type: "boolean",
   },
 } satisfies ParamSchemas;
-
-// 2. Define the function separately with proper typing
+// then you can define the function separately with proper typing
 const fnExample: PluginEventHandler<typeof timerParams> = (params, ctx) => {
   params.message; // ✅ string
   params.duration; // ✅ number
@@ -32,7 +32,7 @@ const fnExample: PluginEventHandler<typeof timerParams> = (params, ctx) => {
   // params.test; // ❌ TS error
 };
 
-// explicitly typed function example
+// Exampple: explicitly typed function
 interface ExplicitParams {
   message: string;
   duration: number;
@@ -46,7 +46,6 @@ const explicitelyTypedFn = (params: ExplicitParams, ctx: PluginContext) => {
   params.notInParamsDef; // ✅ boolean, no TS error but not in params def
 };
 
-// 3. Create the event using both
 const testEvent = defineEvent({
   name: "timer",
   description: "Starts a timer and ends event when timer completes.",

@@ -11,7 +11,7 @@ const fooEvent = defineEvent({
     },
   },
   execute: (params, ctx) => {
-    params.message; // ✅ string
+    params.message;
   },
 });
 
