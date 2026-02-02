@@ -1,71 +1,59 @@
-# PS Maker CLI
+# PS Maker Plugin CLI
 
-A CLI tool to create and build Pixel Stories Maker plugins.
-
-## Installation
-
-You can use this tool directly with `npx` without installation:
-
-```bash
-npx @ps-maker/plugin-cli create my-plugin
-```
-
-Or install it globally:
-
-```bash
-npm install -g @ps-maker/plugin-cli
-```
+Create and build plugins for **Pixel Stories Maker**.
 
 ## Quick Start
 
-```bash
-# Using npx (recommended)
-npx @ps-maker/plugin-cli create my-plugin
-cd my-plugin
-npm install
-npm run build
+Create a new plugin:
 
-# Or with global install
-create-ps-maker-plugin my-plugin
-cd my-plugin
-npm install
-npm run build
+```bash
+npx @ps-maker/plugin-cli create my-plugin
 ```
 
 ## Commands
 
 ### `create [target-dir]`
 
-Scaffolds a new plugin project from the template.
+Scaffolds a new plugin project using the default template.
 
 ```bash
-# Create in a new directory
-ps-maker-plugin create my-plugin
+# Create a new plugin in
+npx @ps-maker/plugin-cli create
 
-# Or create in current directory
-ps-maker-plugin create .
+# Create a new plugin in ./my-plugin
+npx @ps-maker/plugin-cli create my-plugin
+
+# Create a plugin in the current directory
+npx @ps-maker/plugin-cli create .
 ```
+
+---
 
 ### `build`
 
-Bundles your plugin's `src/index.ts` into a single file using esbuild.
+Builds your plugin from `src/index.ts` into a single bundled file.
 
 ```bash
-ps-maker-plugin build
+# In project root
+npm run build
+
+# Or using command if installed in project
+npx ps-maker-plugin build
+
+# Or using npx without installing
+npx @ps-maker/plugin-cli build
 ```
 
-**Options:**
+By default, the output is written to `dist/`.
 
-| Option               | Description      | Default |
-| -------------------- | ---------------- | ------- |
-| `-o, --outdir <dir>` | Output directory | `dist`  |
+## Plugin Development
 
-**Examples:**
+- Edit your plugin logic in `src/index.ts`
+- Run `npm run build` to generate the final plugin bundle
+- Copy the built file into your Pixel Stories Maker project’s plugins folder
 
-```bash
-# Build to default dist/ folder
-ps-maker-plugin build
+## Documentation
 
-# Build to custom output directory
-ps-maker-plugin build --outdir out
-```
+Plugin docs and API reference:
+
+👉 [https://pixelstories.io/docs/plugins/](https://pixelstories.io/docs/plugins/)
