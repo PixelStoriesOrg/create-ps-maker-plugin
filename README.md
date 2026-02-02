@@ -7,7 +7,7 @@ Create and build plugins for **Pixel Stories Maker**.
 Create a new plugin:
 
 ```bash
-npx @ps-maker/plugin-cli create my-plugin
+npx @ps-maker/plugin-cli create
 ```
 
 ## Commands
