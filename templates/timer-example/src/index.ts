@@ -5,16 +5,19 @@ const fooEvent = defineEvent({
   description: "Starts a timer and ends event when timer completes.",
   parameterDefs: {
     message: {
+      label: "Message",
       description: "A greeting message.",
       type: "string",
       defaultValue: "Hello, world!",
     },
     duration: {
+      label: "Duration",
       description: "Duration in milliseconds.",
       type: "number",
       defaultValue: 1000,
     },
     enabled: {
+      label: "Enabled",
       description: "Whether the timer is enabled.",
       type: "boolean",
     },

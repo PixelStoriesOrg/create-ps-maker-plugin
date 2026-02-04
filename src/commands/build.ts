@@ -52,7 +52,6 @@ export async function build(options: BuildOptions): Promise<void> {
       platform: "browser",
       target: "es2020",
       minify: true,
-      sourcemap: true,
     });
     console.log(pc.green(`✔ Built ${safePluginName}.ps-maker.js to ${outdir}`));
   } catch (error) {

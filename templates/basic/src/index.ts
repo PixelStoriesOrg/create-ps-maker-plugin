@@ -5,6 +5,7 @@ const myEvent = defineEvent({
   description: "My amazing event.",
   parameterDefs: {
     message: {
+      label: "Message",
       description: "A greeting message.",
       type: "string",
       defaultValue: "Hello, world!",
